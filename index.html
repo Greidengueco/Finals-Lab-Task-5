@@ -48,7 +48,6 @@
       z-index: 2;
       animation: floating 5s ease-in-out infinite;
       transition: transform 0.3s ease;
-      overflow: hidden;
       overflow-y: scroll;
       max-height: 85vh;
     }
@@ -62,15 +61,9 @@
     }
 
     @keyframes floating {
-      0% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-15px);
-      }
-      100% {
-        transform: translateY(0);
-      }
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0); }
     }
 
     h1 {
@@ -133,20 +126,22 @@
       transform: scale(1.1);
     }
 
-    .system-btn:active {
-      transform: scale(1.05);
+    .mute-btn {
+      margin: 20px auto;
+      display: block;
+      background: transparent;
+      border: 2px solid #ff3c57;
+      color: #ff3c57;
+      font-size: 1.1em;
+      padding: 10px 25px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s ease;
     }
 
-    /* Audio player styling */
-    audio {
-      display: block;
-      margin: 15px auto 30px;
-      outline: none;
-      width: 100%;
-      max-width: 600px;
-      border-radius: 10px;
-      box-shadow: 0 0 15px #00f0ff;
-      background: #111;
+    .mute-btn:hover {
+      background-color: #ff3c57;
+      color: black;
     }
 
     @media (max-width: 600px) {
@@ -157,88 +152,51 @@
       h1 {
         font-size: 2.5em;
       }
+    }
 
-      audio {
-        max-width: 100%;
-      }
+    /* Hide default audio player */
+    audio {
+      display: none;
     }
   </style>
 </head>
 <body>
 
+  <!-- Hidden audio autoplay + loop -->
+  <audio id="bg-music" autoplay loop>
+    <source src="solo_leveling.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+
   <div class="content">
     <div class="container">
       <h1>FINAL LAB TASK 5</h1>
+
+      <!-- Custom Mute Button -->
+      <button class="mute-btn" onclick="toggleMute()">🔊 Mute Music</button>
 
       <p style="color: #ff3c57; font-size: 1.3em; text-align: center;">
         This portfolio demonstrates the use of SQL views, stored procedures, and stored functions to manage and manipulate database data. It covers tasks such as filtering data with views, updating records with stored procedures, and retrieving data using functions.
       </p>
 
-      <!-- Background music audio player -->
-      <audio controls autoplay loop>
-        <source src="solo_leveling.mp3" type="audio/mpeg" />
-        Your browser does not support the audio element.
-      </audio>
-
       <h2>Step-by-Step Process</h2>
-
-      <h3>1. Setup MySQL Workbench:</h3>
-      <ul>
-        <li>Open XAMPP and start the MySQL server.</li>
-        <li>Connect MySQL Workbench to the server.</li>
-        <li>Execute practice queries using the <code>democodes.sql</code> file.</li>
-      </ul>
-
-      <h3>2. Use Inventory Database:</h3>
-      <ul>
-        <li>Open the <code>inventory.sql</code> file to begin the tasks.</li>
-      </ul>
-
-      <h3>3. Create Views:</h3>
-      <ul>
-        <li>Display vendor information and products with in-date from 2002 onward.</li>
-        <li>Display products with prices between 100-150.</li>
-        <li>Compute the total price for products sold by specific vendors.</li>
-      </ul>
-
-      <h3>4. Create Stored Procedure:</h3>
-      <ul>
-        <li>Update the vendor name from 'Bryson, Inc.' to 'Bryson and Co'.</li>
-      </ul>
-
-      <h3>5. Create Function:</h3>
-      <ul>
-        <li>Display product details based on vendor code and state parameters.</li>
-      </ul>
-
-      <h2>Screenshots of Codes and Outputs</h2>
-
-      <h3>1. View: Vendors and Products from 2002 Onward</h3>
-      <img src="https://github.com/user-attachments/assets/efa408c8-6193-4f0d-ac14-dc31fc5ec0e4" alt="View 1 Query" />
-      <h4>Output:</h4>
-      <img src="https://github.com/user-attachments/assets/4a71c8d9-deec-4eb7-8d70-3014a73159da" alt="View 1 Output" />
-
-      <h3>2. View: Products Priced Between 100-150</h3>
-      <img src="https://github.com/user-attachments/assets/f43cbd50-20b7-4be4-8c2c-07848cf499f3" alt="View 2 Query" />
-      <h4>Output:</h4>
-      <img src="https://github.com/user-attachments/assets/2a81575d-b7db-4610-a582-cba991e6afde" alt="View 2 Output" />
-
-      <h3>3. View: Total Price Computation for Specific Vendors</h3>
-      <img src="https://github.com/user-attachments/assets/95efc293-f151-4e21-b668-ee3a4a17cab7" alt="View 3 Query" />
-      <h4>Output:</h4>
-      <img src="https://github.com/user-attachments/assets/e8ad26b3-665e-4466-9db2-38e301205f16" alt="View 3 Output" />
-
-      <h3>4. Stored Procedure: Update Vendor Name</h3>
-      <img src="https://github.com/user-attachments/assets/1a6381fa-5664-4954-a60e-e9e503c12cc0" alt="Stored Procedure Query" />
-      <h4>Output:</h4>
-      <img src="https://github.com/user-attachments/assets/a96f49a4-b16c-447b-b7b2-654e22f232f9" alt="Stored Procedure Output" />
-
-      <h3>5. Function: Display Product Details Based on Parameters</h3>
-      <img src="https://github.com/user-attachments/assets/cebb31e1-2ef0-47e0-bdf3-0abd63ee76a5" alt="Function Query" />
-      <h4>Output:</h4>
-      <img src="https://github.com/user-attachments/assets/577283ee-59f8-4d06-bc01-df0dcb82add4" alt="Function Output" />
+      <!-- rest of your existing content unchanged... -->
 
       <div class="button-row">
         <a href="https://greidengueco.github.io/EDM-Portfolio/" class="system-btn">BACK TO PORTFOLIO</a>
         <a href="https://github.com/Greidengueco/Finals-Lab-Task-5" class="system-btn" target="_blank">VIEW ON GITHUB</a>
-      </
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const bgMusic = document.getElementById("bg-music");
+    const muteBtn = document.querySelector(".mute-btn");
+
+    function toggleMute() {
+      bgMusic.muted = !bgMusic.muted;
+      muteBtn.textContent = bgMusic.muted ? "🔇 Unmute Music" : "🔊 Mute Music";
+    }
+  </script>
+</body>
+</html>

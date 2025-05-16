@@ -33,6 +33,7 @@
 # Screenshots of Codes and Outputs:
 ### 1. CREATE A VIEW that will display the vendors_code, vendors name, product
 description p_indate, of all products with p_indate from 2002 onwards
+
 ![1 q](https://github.com/user-attachments/assets/efa408c8-6193-4f0d-ac14-dc31fc5ec0e4)
 ## Output
 ![1 PIC](https://github.com/user-attachments/assets/4a71c8d9-deec-4eb7-8d70-3014a73159da)

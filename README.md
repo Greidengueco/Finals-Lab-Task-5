@@ -52,6 +52,7 @@ the following v_code (21344, 23119 and 24288)
 
 ### 4. CREATE a STORED PROCEDURE that WILL take a SINGLE PARAMETER and
 UPDATED the Name of Vendor ‘Bryson,Inc.’ to ‘Bryson and Co’.
+
 ![4Q](https://github.com/user-attachments/assets/1a6381fa-5664-4954-a60e-e9e503c12cc0)
 ## Output
 ![4 PIC](https://github.com/user-attachments/assets/a96f49a4-b16c-447b-b7b2-654e22f232f9)

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Finals Lab Task 5 - SQL Views, Procedures & Functions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Share Tech Mono', monospace;
+      background: black;
+      color: #00f0ff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    body {
+      padding: 40px 20px;
+      overflow-x: hidden;
+    }
+
+    .content {
+      width: 100%;
+      max-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background: rgba(0, 0, 0, 0.8);
+      border: 2px solid #00f0ff;
+      padding: 40px;
+      max-width: 900px;
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 0 50px rgba(0, 240, 255, 0.5);
+      position: relative;
+      z-index: 2;
+      animation: floating 5s ease-in-out infinite;
+      overflow-y: scroll;
+      max-height: 85vh;
+    }
+
+    .container::-webkit-scrollbar {
+      display: none;
+    }
+    .container {
+      scrollbar-width: none;
+    }
+
+    @keyframes floating {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0); }
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 3em;
+      color: #00f0ff;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #00f0ff;
+      padding-bottom: 10px;
+    }
+
+    h2, h3 {
+      margin-top: 20px;
+      color: #ff3c57;
+      font-size: 1.6em;
+    }
+
+    h3 {
+      color: #00f0ff;
+      font-size: 1.2em;
+    }
+
+    ul {
+      margin-left: 20px;
+      margin-top: 10px;
+    }
+
+    img {
+      width: 80%;
+      max-width: 600px;
+      border-radius: 10px;
+      margin: 20px 0;
+      box-shadow: 0 0 15px #00f0ff;
+    }
+
+    .button-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    .system-btn {
+      padding: 12px 30px;
+      background: transparent;
+      border: 2px solid #00f0ff;
+      color: #00f0ff;
+      font-size: 1.2rem;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+
+    .system-btn:hover {
+      background-color: #00f0ff;
+      color: black;
+      transform: scale(1.1);
+    }
+
+    .system-btn:active {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px;
+      }
+      h1 {
+        font-size: 2.5em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <div class="container">
+      <h1>FINAL LAB TASK 5</h1>
+
+      <p style="color: #ff3c57; font-size: 1.3em; text-align: center;">
+        This portfolio demonstrates the use of SQL views, stored procedures, and stored functions to manage and manipulate database data.
+      </p>
+
+      <h2>Step-by-Step Process</h2>
+      <ul>
+        <li>Set up MySQL Workbench and execute practice queries using <code>democodes.sql</code>.</li>
+        <li>Use the <code>inventory.sql</code> file for the main tasks.</li>
+        <li>Create views for vendor and product filtering.</li>
+        <li>Create a stored procedure to update vendor names.</li>
+        <li>Create a function to retrieve product details by parameters.</li>
+      </ul>
+
+      <h2>Screenshots of Codes and Outputs</h2>
+
+      <h3>1. View for vendors and products with p_indate from 2002 onwards</h3>
+      <img src="https://github.com/user-attachments/assets/efa408c8-6193-4f0d-ac14-dc31fc5ec0e4" alt="Task 1 Query">
+      <h4>Output</h4>
+      <img src="https://github.com/user-attachments/assets/4a71c8d9-deec-4eb7-8d70-3014a73159da" alt="Task 1 Output">
+
+      <h3>2. View for products priced between 100-150</h3>
+      <img src="https://github.com/user-attachments/assets/f43cbd50-20b7-4be4-8c2c-07848cf499f3" alt="Task 2 Query">
+      <h4>Output</h4>
+      <img src="https://github.com/user-attachments/assets/2a81575d-b7db-4610-a582-cba991e6afde" alt="Task 2 Output">
+
+      <h3>3. View to compute total price (P_ONHAND x P_PRICE) by specific vendors</h3>
+      <img src="https://github.com/user-attachments/assets/95efc293-f151-4e21-b668-ee3a4a17cab7" alt="Task 3 Query">
+      <h4>Output</h4>
+      <img src="https://github.com/user-attachments/assets/e8ad26b3-665e-4466-9db2-38e301205f16" alt="Task 3 Output">
+
+      <h3>4. Stored Procedure to update vendor name</h3>
+      <img src="https://github.com/user-attachments/assets/1a6381fa-5664-4954-a60e-e9e503c12cc0" alt="Task 4 Query">
+      <h4>Output</h4>
+      <img src="https://github.com/user-attachments/assets/a96f49a4-b16c-447b-b7b2-654e22f232f9" alt="Task 4 Output">
+
+      <h3>5. Function to display product description and price by v_code and v_state</h3>
+      <img src="https://github.com/user-attachments/assets/cebb31e1-2ef0-47e0-bdf3-0abd63ee76a5" alt="Task 5 Query">
+      <h4>Output</h4>
+      <img src="https://github.com/user-attachments/assets/577283ee-59f8-4d06-bc01-df0dcb82add4" alt="Task 5 Output">
+
+      <div class="button-row">
+        <a href="https://greidengueco.github.io/EDM-Portfolio/" class="system-btn">BACK TO PORTFOLIO</a>
+        <a href="https://github.com/Greidengueco/Finals-Lab-Task-5" class="system-btn" target="_blank">VIEW ON GITHUB</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
